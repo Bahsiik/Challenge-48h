@@ -1,5 +1,4 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     color: #550cae;
 }
@@ -15,10 +14,12 @@ body {
     background-color: #600cae;
     border: 10px solid #550cae;
     border-radius: 10px;
+    box-shadow: 0 0 50px #550cae;
 
-    margin: 0 auto;
+    margin: 50px auto;
     display: flex;
     flex-wrap: wrap;
+    user-select: none;
 }
 
 #board img {
@@ -27,12 +28,6 @@ body {
     border: 1px solid #600cae;
 }
 
-.button {
-    margin-top: 25px;
-}
-
-a {
-    text-decoration: none;
-    color: #550cae;
-    font-size: 2em;
+h3 {
+    color: #020303;
 }
