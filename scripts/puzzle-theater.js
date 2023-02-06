@@ -63,30 +63,30 @@ addEventListener("load", () => {
                 isOnGround = true;
             }
         }
-        console.log(character.getBoundingClientRect().right);
-
 
         if (!isOnGround) {
-            character.style.top = character.getBoundingClientRect().top + 1 + "%";
+            character.style.top = character.getBoundingClientRect().top + 0.0000000054 + "vw";
         }
 
         let tree = document.getElementById("tree");
 
-        if (character.getBoundingClientRect().right >= tree.getBoundingClientRect().left) {
+        if (character.right >= tree.left) {
             isGoingRight = false;
         }
 
-        if (character.getBoundingClientRect().left <= tree.getBoundingClientRect().right) {
+        console.log(character.getBoundingClientRect().left);
+
+        if (character.left <= tree.right) {
             isGoingRight = true;
         }
 
         if (isGoingRight) {
-            character.style.left = character.getBoundingClientRect().left + 0.001 + "px";
+            character.style.left = character.getBoundingClientRect().left + 0.0000000000000054 + "vw";
         } else {
-            character.style.left = character.getBoundingClientRect().left - 0.001 + "px";
+            character.style.left = character.getBoundingClientRect().left - 0.0000000000000054 + "vw";
         }
 
-        setTimeout(moveCharacter, 900);
+        setTimeout(moveCharacter, 100);
     }
 });
 

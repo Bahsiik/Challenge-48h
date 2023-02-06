@@ -18,6 +18,7 @@ html, body {
     position: relative;
     border: thin solid #525252;
     cursor: pointer;
+    width: 100%;
 }
 img.bloc {
     position: absolute;
