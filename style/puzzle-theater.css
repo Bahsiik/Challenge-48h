@@ -16,7 +16,8 @@ html, body {
 }
 .puzzlePiece {
     position: relative;
-    border: thin solid white;
+    border: thin solid #525252;
+    cursor: pointer;
 }
 img.bloc {
     position: absolute;
@@ -52,4 +53,22 @@ img.bloc.bunnyLeft {
 }
 .selected {
     border: aqua solid thin;
+}
+.unmovablePiece {
+    pointer-events: none;
+    box-sizing: border-box;
+    border: 3px solid #692904;
+}
+.fa-lock {
+    color: #692904;
+    font-size: 35px;
+    margin: 10px;
+    position: absolute;
+    right: 0;
+    cursor: default;
+}
+img#character {
+    position: absolute;
+    height: 30%;
+    bottom: 40%;
 }

@@ -5,41 +5,10 @@ let puzzlePieces = document.getElementsByClassName("puzzlePiece");
 let step = 1;
 let p1, p2;
 
-// for (let i = 0; i < puzzlePieces.length; i++) {
-//     puzzlePieces[i].addEventListener("click", function(e) {
-//         switch(step) {
-//             case 1:
-//                 if (e.target.classList.contains("puzzlePiece") && !e.target.classList.contains("selected")) {
-//                     e.target.classList.add("selected");
-//                     e.target.dataset.clicked = "true";
-//                     p1 = e.target;
-//                     step = 2;
-//                 }
-//                 break;
-//             case 2:
-//                 if (e.target.classList.contains("puzzlePiece") && !e.target.classList.contains("selected")) {
-//                     e.target.classList.add("selected");
-//                     e.target.dataset.clicked = "true";
-//                     p2 = e.target;
-//                     step = 3;
-//                 }
-//                 break;
-//             case 3:
-//                 let place = p2.parentElement;
-//                 p2.parentElement.appendChild(p1);
-//                 place.appendChild(p2);
-//                 p1.classList.remove("selected");
-//                 p2.classList.remove("selected");
-//                 step = 1;
-//                 break;
-//         }
-//     });
-// }
-
 document.addEventListener("click", function(e) {
     switch(step) {
         case 1:
-            if (e.target.classList.contains("puzzlePiece") && !e.target.classList.contains("selected")) {
+            if (e.target.classList.contains("puzzlePiece") && !e.target.classList.contains("selected") && !e.target.classList.contains("unmovablePiece")) {
                 e.target.classList.add("selected");
                 e.target.dataset.clicked = "true";
                 p1 = e.target;
@@ -47,7 +16,7 @@ document.addEventListener("click", function(e) {
             }
             break;
         case 2:
-            if (e.target.classList.contains("puzzlePiece") && !e.target.classList.contains("selected")) {
+            if (e.target.classList.contains("puzzlePiece") && !e.target.classList.contains("selected") && !e.target.classList.contains("unmovablePiece")) {
                 e.target.classList.add("selected");
                 e.target.dataset.clicked = "true";
                 p2 = e.target;
@@ -76,3 +45,48 @@ document.addEventListener("click", function(e) {
             break;
     }
 });
+
+// make character move every 10ms
+
+let isOnGround = false;
+let isGoingRight = true;
+
+addEventListener("load", () => {
+    const character = document.getElementById("character");
+    let grounds = document.getElementsByClassName("blocSolo");
+
+    moveCharacter();
+
+    function moveCharacter() {
+        for (let i = 0; i < grounds.length; i++) {
+            if (character.getBoundingClientRect().bottom >= grounds[i].getBoundingClientRect().top) {
+                isOnGround = true;
+            }
+        }
+        console.log(character.getBoundingClientRect().right);
+
+
+        if (!isOnGround) {
+            character.style.top = character.getBoundingClientRect().top + 1 + "%";
+        }
+
+        let tree = document.getElementById("tree");
+
+        if (character.getBoundingClientRect().right >= tree.getBoundingClientRect().left) {
+            isGoingRight = false;
+        }
+
+        if (character.getBoundingClientRect().left <= tree.getBoundingClientRect().right) {
+            isGoingRight = true;
+        }
+
+        if (isGoingRight) {
+            character.style.left = character.getBoundingClientRect().left + 0.001 + "px";
+        } else {
+            character.style.left = character.getBoundingClientRect().left - 0.001 + "px";
+        }
+
+        setTimeout(moveCharacter, 900);
+    }
+});
+
