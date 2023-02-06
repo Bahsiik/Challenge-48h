@@ -20,6 +20,7 @@ html, body {
 }
 img.bloc {
     position: absolute;
+    pointer-events: none;
 }
 img.bloc.blocSolo {
     position: absolute;
@@ -49,6 +50,6 @@ img.bloc.bunnyLeft {
     bottom: 40%;
     right: 40%;
 }
-.select {
+.selected {
     border: aqua solid thin;
 }
