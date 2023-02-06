@@ -287,9 +287,10 @@ class Levels {
 
 
 	getLevel(levelNum) {
-		if (levelNum === 5){
-			document.querySelector(".texte").innerHTML = "Bravo tu as gagné !\n Le code est : <p id='lecode'> </p>";
-
+		if (levelNum === 1){
+			document.querySelector(".texte").innerHTML = "Félicitation ! Le prochain code est maintenant accessible. <p id='lecode'> </p>";
+			const element = document.querySelector("main");
+			element.parentNode.removeChild(element);
 		}
 		console.log(this.levels[levelNum]);
 		return this.levels[levelNum];

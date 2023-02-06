@@ -1,7 +1,7 @@
 
 
 function setup() {
-	createCanvas(windowWidth, windowHeight);
+	createCanvas(600, 600);
 
 	game = new Game();
 	game.nextLevel();
@@ -16,7 +16,7 @@ function draw() {
 }
 
 function windowResized() {
-	resizeCanvas(windowWidth, windowHeight);
+	resizeCanvas(600, 600);
 	game.unit = width / 100;
 	game.windowResized();
 }
