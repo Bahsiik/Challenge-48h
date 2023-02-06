@@ -1,0 +1,42 @@
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 40px;
+}
+
+.head{
+    background-color: blue;
+   
+    height: 20%;
+}
+
+.middle{
+    background-color:white;
+   height: 60%;
+   width: 100%;
+   display: flex;
+   justify-content: space-evenly;
+   flex-direction: column;
+    
+}
+
+.foot{
+    background-color: red;
+    height: 20%;
+}
+
+/* .icon{
+    width: 10vw;
+    height: 10vh;
+} */
+
+.icones{
+    display: flex;
+    justify-content: space-between;
+}
+
+.texte{
+    background-color: white;
+    border-style: dotted ;
+    padding: 10px;
+    border-color: aqua;
+}
