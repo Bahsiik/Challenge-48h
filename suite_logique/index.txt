@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<title>Jeu de logique</title>
+<link rel="stylesheet" href="jeulogique.css"> 
+<head> <script src="../jeu_logique/jeulogique.js"></script>
+</head>
+<body>
+   
+    <h1 >4, 6, 15, 105, ?</h1>
+    <h2 id="tent"></h2>
+    <p id="text"></p>
+    <p id="true"></p>
+
+    <form  method="get" >
+        
+        <input type="text"  id="form" value="">
+       
+            <button type="button" onclick="checkform()" >Envoyer le message</button>
+        </div>
+        
+    </form>
+</body>
+</html>
