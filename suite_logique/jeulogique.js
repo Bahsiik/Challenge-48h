@@ -3,12 +3,12 @@ function checkform(){
 var id = document.getElementById("form");
 
 alert("Cliqué sur " + id.value);
-document.getElementById("text").innerHTML = ""
+document.getElementById("false").innerHTML = ""
 document.getElementById("true").innerHTML = ""
 if (id.value!= 5460){
   alert("false")
   
-  document.getElementById("text").innerHTML = "false"
+  document.getElementById("false").innerHTML = "false"
   tent=tent+1;
   document.getElementById("tent").innerHTML = tent
  
