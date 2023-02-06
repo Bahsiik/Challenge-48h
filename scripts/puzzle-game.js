@@ -15,7 +15,7 @@ window.onload = function () {
 
             let tile = document.createElement("img");
             tile.id = r.toString() + "-" + c.toString();
-            tile.src = "../ressources/4x4/" + imgOrder.shift() + ".jpg";
+            tile.src = "../resources/4x4/" + imgOrder.shift() + ".jpg";
 
             tile.addEventListener("dragstart", dragStart);
             tile.addEventListener("dragover", dragOver);
