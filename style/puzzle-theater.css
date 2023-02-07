@@ -4,6 +4,10 @@ html, body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    color: #550CAE;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 #puzzle {
     width: 80vw;
@@ -51,6 +55,7 @@ img.bloc.bunnyLeft {
     width: 20%;
     bottom: 40%;
     right: 40%;
+    box-shadow: 11px 2px 29px #ff00007a;
 }
 .selected {
     border: aqua solid thin;
@@ -80,4 +85,7 @@ img#character {
 .result {
     color: #fff;
     margin: 30px;
+}
+p {
+    margin: 1px;
 }
