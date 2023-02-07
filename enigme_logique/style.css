@@ -1,6 +1,6 @@
 *{
     margin: 0;
-    color: #550CAE;
+    /* color: #550CAE; */
 }
 
 .head{
@@ -8,9 +8,6 @@
     background-color: #f5f5f5;
     height: 20%;
     width: 100%;
-    
-    
-    
 }
 
 .enigme{
@@ -24,15 +21,10 @@
     
 }
 
-.foot{
-    background-color: red;
-    height: 20%;
-    width: 100%;
-}
-
 .icon{
     background: white;
 }
+
 .icones{
     display: flex;
     justify-content: space-between;
@@ -47,8 +39,9 @@
 .section2{
     width: 100%;
     display: flex;
-    justify-content: flex-end;
-    
+    justify-content:space-around;
+    padding: 40px;
+    background-color: #c0c0c0;
     /* background-color: white; */
 }
 
@@ -68,5 +61,12 @@ h1{
 
 button.bouton{
     padding: 4px;
+    
+}
+
+.message{
+  font-size: 22px;
+    color: black;
+    
     
 }
