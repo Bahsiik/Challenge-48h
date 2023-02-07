@@ -7,6 +7,7 @@
     <link rel="stylesheet" href ="style.css"/>
     <link rel="shortcut icon" href="icones/icons8-javascript-color-120.png" type="image/x-icon">
     <title>L'énigme logique</title>
+    <script src="enigme.js"></script>
 </head>
 <body>
 
@@ -91,23 +92,21 @@
             <img src="icones/point-d'interrogation-100.png" class="icon"> 
         </div>
         </section>
-
+        <p id="result"></p>
         <section class="section2">
+            
+            <form method="get">
                 
-            <form action="" method="get">
                 <label for="reponse">Réponse:</label>
                 <input type="text" id="reponse" name="answer">
-                <input type="submit" value="Valider">     
+               
+                <button type="button" onclick="enigme1()"> valider </button>    
             </form>
 
          </section>
-
     
     </main> 
 
-    <footer class="foot">
-        Pied de page
-    </footer>
-
+     
 </body>
 </html>
