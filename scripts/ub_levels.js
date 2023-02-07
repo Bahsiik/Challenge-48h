@@ -288,7 +288,7 @@ class Levels {
 
 	getLevel(levelNum) {
 		if (levelNum === 5){
-			document.querySelector(".texte").innerHTML = "Félicitation ! Le prochain code est maintenant accessible. <p id='lecode'> </p>";
+			document.querySelector(".texte").innerHTML = "Félicitation ! Le prochain code est maintenant accessible. <p id='5hcaz9'> </p>";
 			const element = document.querySelector("main");
 			element.parentNode.removeChild(element);
 		}
