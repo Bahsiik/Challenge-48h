@@ -9,7 +9,7 @@ class Block {
 
 		this.moving = false;
 		this.isRedBlock = isRedBlock;
-		this.col = this.isRedBlock ? color("red") : color(0xff);
+		this.col = this.isRedBlock ? color("red") : color("#550cae");
 		this.pWid = this.uWid * game.tileSize;
 		this.pHei = this.uHei * game.tileSize;
 
@@ -48,11 +48,9 @@ class Block {
 	}
 
 	checkMouseTouching() {
-		if (mouseX > this.pX && mouseX < this.pX + this.pWid &&
-			mouseY > this.pY && mouseY < this.pY + this.pHei) {
-			return true;
-		}
-		return false;
+		return mouseX > this.pX && mouseX < this.pX + this.pWid &&
+			mouseY > this.pY && mouseY < this.pY + this.pHei;
+
 	}
 
 	startMoving() {
