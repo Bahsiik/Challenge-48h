@@ -63,10 +63,10 @@ img.bloc.bunnyLeft {
 .unmovablePiece {
     pointer-events: none;
     box-sizing: border-box;
-    border: 3px solid #692904;
+    border: 3px solid #4c1148;
 }
 .fa-lock {
-    color: #692904;
+    color: #4c1148;
     font-size: 35px;
     margin: 10px;
     position: absolute;
