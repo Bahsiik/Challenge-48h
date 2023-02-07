@@ -46,49 +46,79 @@ document.addEventListener("click", function(e) {
     }
 });
 
-// make character move every 10ms
-
-let isOnGround = false;
-let isGoingRight = true;
-
 addEventListener("load", () => {
     const character = document.getElementById("character");
     let grounds = document.getElementsByClassName("blocSolo");
     let tree = document.getElementById("tree");
-    console.log(tree);
+    let puzzle = document.getElementById("puzzle");
+    let puzzlePieces = document.getElementsByClassName("puzzlePiece");
 
     character.style.left = "0px";
 
-    console.log(character.getBoundingClientRect().right);
-    console.log(tree.getBoundingClientRect().left);
-    console.log(Math.round(character.getBoundingClientRect().bottom));
-    console.log(Math.round(tree.getBoundingClientRect().bottom));
+    let force = 1;
+    let isOnGround = false;
+    let isGoingRight = true;
 
     moveCharacter();
 
     function moveCharacter() {
+        isOnGround = false;
+
+        //check if character is on ground, if not, add gravity
         for (let i = 0; i < grounds.length; i++) {
-            if (character.getBoundingClientRect().bottom >= grounds[i].getBoundingClientRect().top) {
+            if (character.getBoundingClientRect().bottom + 2 >= grounds[i].getBoundingClientRect().top && character.getBoundingClientRect().bottom < grounds[i].getBoundingClientRect().bottom && character.getBoundingClientRect().right > grounds[i].getBoundingClientRect().left && character.getBoundingClientRect().left < grounds[i].getBoundingClientRect().right) {
                 isOnGround = true;
+                force = 1;
             }
         }
 
-        if (!isOnGround) {
-            character.style.top = character.getBoundingClientRect().top + 0.1 + "px";
-        }
-
-        if (character.getBoundingClientRect().right >= tree.getBoundingClientRect().left && Math.round(character.getBoundingClientRect().bottom) === Math.round(tree.getBoundingClientRect().bottom)+1 || character.getBoundingClientRect().right >= window.innerWidth) {
+        // conditions when touching things
+        if ((character.getBoundingClientRect().right >= tree.getBoundingClientRect().left && character.getBoundingClientRect().right < tree.getBoundingClientRect().right && Math.round(character.getBoundingClientRect().bottom) === Math.round(tree.getBoundingClientRect().bottom)) || character.getBoundingClientRect().right >= puzzle.getBoundingClientRect().right) {
+            console.log("is not going right");
             isGoingRight = false;
         }
-        //
-        // if (character.getBoundingClientRect().left <= 0 || ) {
-        //     isGoingRight = true;
-        // }
 
-        if (isGoingRight) {
+        if (character.getBoundingClientRect().left <= puzzle.getBoundingClientRect().left || (character.getBoundingClientRect().left <= tree.getBoundingClientRect().right && character.getBoundingClientRect().left > tree.getBoundingClientRect().left && Math.round(character.getBoundingClientRect().bottom) === Math.round(tree.getBoundingClientRect().bottom))) {
+            console.log("is going right");
+            isGoingRight = true;
+        }
+
+        // swap character div when touching a new puzzle piece
+        for (let i = 0; i < puzzlePieces.length; i++) {
+            let child = puzzlePieces[i].children;
+            // if child contains character, then set checked to true
+            for (let j = 0; j < child.length; j++) {
+                if (child[j].id === "character") {
+                    puzzlePieces[i].dataset.checked = "true";
+                }
+            }
+            // if character's center is inside the puzzle piece then swap the character place
+            if (character.getBoundingClientRect().left + character.width/2 >=
+                puzzlePieces[i].getBoundingClientRect().left && character.getBoundingClientRect().left +
+                character.width/2 <= puzzlePieces[i].getBoundingClientRect().right && character.getBoundingClientRect().top <=
+                puzzlePieces[i].getBoundingClientRect().bottom && character.getBoundingClientRect().bottom >=
+                puzzlePieces[i].getBoundingClientRect().top && puzzlePieces[i].dataset.checked === "false") {
+                // puzzlePieces[i].dataset.checked = "true";
+                character.closest(".puzzlePiece").dataset.checked = "false";
+                character.parentNode.removeChild(character);
+                puzzlePieces[i].appendChild(character);
+                if (isGoingRight) {
+                    console.log("right");
+                    character.style.left = "0px";
+                } else {
+                    console.log("left");
+                    character.style.left = puzzlePieces[i].getBoundingClientRect().width - character.getBoundingClientRect().width + "px";
+                }
+            }
+        }
+
+        // move character
+        if (isGoingRight && isOnGround) {
             character.style.left = parseFloat(character.style.left) + 1 + "px";
-        } else {
+        } else if (!isGoingRight && isOnGround) {
             character.style.left = parseFloat(character.style.left) - 1 + "px";
+        } else {
+            character.style.top = parseFloat(character.style.top) + force + "px";
         }
 
         setTimeout(moveCharacter, 10);
