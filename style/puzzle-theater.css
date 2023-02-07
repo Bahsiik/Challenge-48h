@@ -38,8 +38,8 @@ img.bloc.blocSolo.smallBlocSoloRight {
     right: 0;
 }
 img.bloc.blocTree {
-    width: 25%;
-    right: 20%;
+    width: 20%;
+    right: 1%;
     bottom: 40%;
 }
 img.bloc.bread {
@@ -73,4 +73,11 @@ img#character {
     height: 30%;
     bottom: 40%;
     left: 0;
+}
+#dialog {
+    position: absolute;
+}
+.result {
+    color: #fff;
+    margin: 30px;
 }

@@ -52,10 +52,12 @@ addEventListener("load", () => {
     let tree = document.getElementById("tree");
     let puzzle = document.getElementById("puzzle");
     let puzzlePieces = document.getElementsByClassName("puzzlePiece");
+    let bread = document.getElementById("bread");
+    let bunny = document.getElementById("bunny");
 
     character.style.left = "0px";
+    character.style.top = "30px";
 
-    let force = 1;
     let isOnGround = false;
     let isGoingRight = true;
 
@@ -68,19 +70,25 @@ addEventListener("load", () => {
         for (let i = 0; i < grounds.length; i++) {
             if (character.getBoundingClientRect().bottom + 2 >= grounds[i].getBoundingClientRect().top && character.getBoundingClientRect().bottom < grounds[i].getBoundingClientRect().bottom && character.getBoundingClientRect().right > grounds[i].getBoundingClientRect().left && character.getBoundingClientRect().left < grounds[i].getBoundingClientRect().right) {
                 isOnGround = true;
-                force = 1;
             }
         }
 
         // conditions when touching things
-        if ((character.getBoundingClientRect().right >= tree.getBoundingClientRect().left && character.getBoundingClientRect().right < tree.getBoundingClientRect().right && Math.round(character.getBoundingClientRect().bottom) === Math.round(tree.getBoundingClientRect().bottom)) || character.getBoundingClientRect().right >= puzzle.getBoundingClientRect().right) {
-            console.log("is not going right");
+        if ((character.getBoundingClientRect().right >= tree.getBoundingClientRect().left && character.getBoundingClientRect().right < tree.getBoundingClientRect().right && character.parentNode === tree.parentNode || character.getBoundingClientRect().right >= puzzle.getBoundingClientRect().right)) {
             isGoingRight = false;
         }
 
-        if (character.getBoundingClientRect().left <= puzzle.getBoundingClientRect().left || (character.getBoundingClientRect().left <= tree.getBoundingClientRect().right && character.getBoundingClientRect().left > tree.getBoundingClientRect().left && Math.round(character.getBoundingClientRect().bottom) === Math.round(tree.getBoundingClientRect().bottom))) {
-            console.log("is going right");
+        if (character.getBoundingClientRect().left <= puzzle.getBoundingClientRect().left || (character.getBoundingClientRect().left <= tree.getBoundingClientRect().right && character.getBoundingClientRect().left > tree.getBoundingClientRect().left && character.parentNode === tree.parentNode)) {
             isGoingRight = true;
+        }
+
+        if (character.getBoundingClientRect().right >= bread.getBoundingClientRect().left && character.getBoundingClientRect().left <= bread.getBoundingClientRect().right && character.getBoundingClientRect().bottom >= bread.getBoundingClientRect().top && character.getBoundingClientRect().top <= bread.getBoundingClientRect().bottom) {
+            puzzle.innerHTML = "<p class=result>GG ! Le code est q8er ! ... J'ai l'impression qu'il était déjà présent dans le code source de la page...</p>";
+        }
+
+        // if touch bunny reload page
+        if (character.getBoundingClientRect().right >= bunny.getBoundingClientRect().left && character.getBoundingClientRect().left <= bunny.getBoundingClientRect().right && character.getBoundingClientRect().bottom >= bunny.getBoundingClientRect().top && character.getBoundingClientRect().top <= bunny.getBoundingClientRect().bottom) {
+            location.reload();
         }
 
         // swap character div when touching a new puzzle piece
@@ -100,13 +108,13 @@ addEventListener("load", () => {
                 puzzlePieces[i].getBoundingClientRect().top && puzzlePieces[i].dataset.checked === "false") {
                 // puzzlePieces[i].dataset.checked = "true";
                 character.closest(".puzzlePiece").dataset.checked = "false";
+                let topValue = character.getBoundingClientRect().top - puzzlePieces[i].getBoundingClientRect().top + "px";
                 character.parentNode.removeChild(character);
                 puzzlePieces[i].appendChild(character);
                 if (isGoingRight) {
-                    console.log("right");
                     character.style.left = "0px";
+                    character.style.top = topValue;
                 } else {
-                    console.log("left");
                     character.style.left = puzzlePieces[i].getBoundingClientRect().width - character.getBoundingClientRect().width + "px";
                 }
             }
@@ -118,7 +126,7 @@ addEventListener("load", () => {
         } else if (!isGoingRight && isOnGround) {
             character.style.left = parseFloat(character.style.left) - 1 + "px";
         } else {
-            character.style.top = parseFloat(character.style.top) + force + "px";
+            character.style.top = parseFloat(character.style.top) + 1 + "px";
         }
 
         setTimeout(moveCharacter, 10);
