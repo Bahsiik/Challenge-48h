@@ -26,7 +26,7 @@ function enigme2(){
         location.href = "enigme3.html"
     }
 }
-
+""
 function enigme3(){
     var rep3 = document.getElementById("reponse3")
     if (rep3.value!= 15){

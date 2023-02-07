@@ -4,10 +4,7 @@ class Game {
 
 		this.gridUWid = 6;  // grid width in units
 		this.gridUHei = 6;  // grid height in units
-		/*
-		this.grid = Array(this.gridUHei).fill(0).map(x => Array(this.gridUWid).fill(false));
-		this.blocks = [];
-		*/
+		
 
 		this.exit = createVector(this.gridUWid, 2);
 		this.levels = new Levels();
@@ -29,10 +26,7 @@ class Game {
 		this.levelNum++;
 		this.grid = [];
 		this.grid = Array(this.gridUHei).fill(0).map(x => Array(this.gridUWid).fill(false));
-		/*
-		this.grid = Array(this.gridUHei).fill(0)
-		this.grid.forEach((item, index) => { this.grid[index] = Array(this.gridUWid).fill(false) });
-		*/
+		
 		this.blocks = [];
 		let level = this.levels.getLevel(this.levelNum);
 		for (let i in level) {
