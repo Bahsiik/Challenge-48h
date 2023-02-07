@@ -83,7 +83,7 @@ addEventListener("load", () => {
         }
 
         if (character.getBoundingClientRect().right >= bread.getBoundingClientRect().left && character.getBoundingClientRect().left <= bread.getBoundingClientRect().right && character.getBoundingClientRect().bottom >= bread.getBoundingClientRect().top && character.getBoundingClientRect().top <= bread.getBoundingClientRect().bottom) {
-            puzzle.innerHTML = "<p class=result>GG ! Le code est q8er ! ... J'ai l'impression qu'il était déjà présent dans le code source de la page...</p>";
+            puzzle.innerHTML = "<p class=result>GG ! Le code est pom ! ... J'ai l'impression qu'il était déjà présent dans le code source de la page...</p>";
         }
 
         // if touch bunny reload page
