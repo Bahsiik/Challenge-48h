@@ -54,6 +54,15 @@ let isGoingRight = true;
 addEventListener("load", () => {
     const character = document.getElementById("character");
     let grounds = document.getElementsByClassName("blocSolo");
+    let tree = document.getElementById("tree");
+    console.log(tree);
+
+    character.style.left = "0px";
+
+    console.log(character.getBoundingClientRect().right);
+    console.log(tree.getBoundingClientRect().left);
+    console.log(Math.round(character.getBoundingClientRect().bottom));
+    console.log(Math.round(tree.getBoundingClientRect().bottom));
 
     moveCharacter();
 
@@ -65,28 +74,24 @@ addEventListener("load", () => {
         }
 
         if (!isOnGround) {
-            character.style.top = character.getBoundingClientRect().top + 0.0000000054 + "vw";
+            character.style.top = character.getBoundingClientRect().top + 0.1 + "px";
         }
 
-        let tree = document.getElementById("tree");
-
-        if (character.right >= tree.left) {
+        if (character.getBoundingClientRect().right >= tree.getBoundingClientRect().left && Math.round(character.getBoundingClientRect().bottom) === Math.round(tree.getBoundingClientRect().bottom)+1 || character.getBoundingClientRect().right >= window.innerWidth) {
             isGoingRight = false;
         }
-
-        console.log(character.getBoundingClientRect().left);
-
-        if (character.left <= tree.right) {
-            isGoingRight = true;
-        }
+        //
+        // if (character.getBoundingClientRect().left <= 0 || ) {
+        //     isGoingRight = true;
+        // }
 
         if (isGoingRight) {
-            character.style.left = character.getBoundingClientRect().left + 0.0000000000000054 + "vw";
+            character.style.left = parseFloat(character.style.left) + 1 + "px";
         } else {
-            character.style.left = character.getBoundingClientRect().left - 0.0000000000000054 + "vw";
+            character.style.left = parseFloat(character.style.left) - 1 + "px";
         }
 
-        setTimeout(moveCharacter, 100);
+        setTimeout(moveCharacter, 10);
     }
 });
 
