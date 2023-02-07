@@ -40,6 +40,7 @@ document.addEventListener("click", function(e) {
                 p2.classList.remove("selected");
                 p1.dataset.clicked = "false";
                 p2.dataset.clicked = "false";
+                p1.dataset.checked = "false";
                 step = 1;
             }
             break;
@@ -60,6 +61,7 @@ addEventListener("load", () => {
 
     let isOnGround = false;
     let isGoingRight = true;
+    let timer;
 
     moveCharacter();
 
@@ -84,6 +86,8 @@ addEventListener("load", () => {
 
         if (character.getBoundingClientRect().right >= bread.getBoundingClientRect().left && character.getBoundingClientRect().left <= bread.getBoundingClientRect().right && character.getBoundingClientRect().bottom >= bread.getBoundingClientRect().top && character.getBoundingClientRect().top <= bread.getBoundingClientRect().bottom) {
             puzzle.innerHTML = "<p class=result>GG ! Le code est pom ! ... J'ai l'impression qu'il était déjà présent dans le code source de la page...</p>";
+            clearTimeout(timer);
+            return;
         }
 
         // if touch bunny reload page
@@ -109,6 +113,7 @@ addEventListener("load", () => {
                 // puzzlePieces[i].dataset.checked = "true";
                 character.closest(".puzzlePiece").dataset.checked = "false";
                 let topValue = character.getBoundingClientRect().top - puzzlePieces[i].getBoundingClientRect().top + "px";
+                // let leftValue = character.getBoundingClientRect().left - puzzlePieces[i].getBoundingClientRect().left + "px";
                 character.parentNode.removeChild(character);
                 puzzlePieces[i].appendChild(character);
                 if (isGoingRight) {
@@ -129,7 +134,7 @@ addEventListener("load", () => {
             character.style.top = parseFloat(character.style.top) + 1 + "px";
         }
 
-        setTimeout(moveCharacter, 10);
+        timer = setTimeout(moveCharacter, 10);
     }
 });
 
