@@ -85,6 +85,8 @@ img#character {
 .result {
     color: #fff;
     margin: 30px;
+    position: absolute;
+    max-width: 70%;
 }
 p {
     margin: 1px;

@@ -85,13 +85,13 @@ addEventListener("load", () => {
         }
 
         if (character.getBoundingClientRect().right >= bread.getBoundingClientRect().left && character.getBoundingClientRect().left <= bread.getBoundingClientRect().right && character.getBoundingClientRect().bottom >= bread.getBoundingClientRect().top && character.getBoundingClientRect().top <= bread.getBoundingClientRect().bottom) {
-            puzzle.innerHTML = "<p class=result>GG ! Le code est pom ! ... J'ai l'impression qu'il était déjà présent dans le code source de la page...</p>";
+            puzzle.innerHTML = "<p class=result>GG ! Le code est \"pom\" ! ... J'ai l'impression qu'il était déjà présent dans le code source de la page...</p>";
             clearTimeout(timer);
             return;
         }
 
         // if touch bunny reload page
-        if (character.getBoundingClientRect().right >= bunny.getBoundingClientRect().left && character.getBoundingClientRect().left <= bunny.getBoundingClientRect().right && character.getBoundingClientRect().bottom >= bunny.getBoundingClientRect().top && character.getBoundingClientRect().top <= bunny.getBoundingClientRect().bottom) {
+        if ((character.getBoundingClientRect().right >= bunny.getBoundingClientRect().left && character.getBoundingClientRect().left <= bunny.getBoundingClientRect().right && character.getBoundingClientRect().bottom >= bunny.getBoundingClientRect().top && character.getBoundingClientRect().top <= bunny.getBoundingClientRect().bottom) || (character.getBoundingClientRect().bottom >= puzzle.getBoundingClientRect().bottom) ) {
             location.reload();
         }
 
@@ -113,11 +113,13 @@ addEventListener("load", () => {
                 // puzzlePieces[i].dataset.checked = "true";
                 character.closest(".puzzlePiece").dataset.checked = "false";
                 let topValue = character.getBoundingClientRect().top - puzzlePieces[i].getBoundingClientRect().top + "px";
+                let leftValue = character.getBoundingClientRect().left;
                 // let leftValue = character.getBoundingClientRect().left - puzzlePieces[i].getBoundingClientRect().left + "px";
                 character.parentNode.removeChild(character);
                 puzzlePieces[i].appendChild(character);
                 if (isGoingRight) {
                     character.style.left = "0px";
+                    // character.getBoundingClientRect().left = leftValue;
                     character.style.top = topValue;
                 } else {
                     character.style.left = puzzlePieces[i].getBoundingClientRect().width - character.getBoundingClientRect().width + "px";
