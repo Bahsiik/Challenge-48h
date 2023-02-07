@@ -77,10 +77,17 @@ a {
     border-radius: 5px;
     padding: 10px;
     transition: 0.3s;
+
 }
 
 a:hover {
     background-color: rgba(85, 12, 174, 0.75);
     box-shadow: 0 0 10px #550cae;
     cursor: pointer;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
