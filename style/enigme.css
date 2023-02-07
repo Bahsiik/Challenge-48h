@@ -46,10 +46,11 @@
 
 /*la zone de reponse*/
 .section2{
-    width: 100%;
+    margin-top: 50px;
+    margin-left: 20px;
+
     display: flex;
-    justify-content: flex-end;
-    
+
     /* background-color: white; */
 }
 
@@ -67,4 +68,19 @@ section.enigme{
 button.bouton{
     padding: 4px;
     
+}
+
+a {
+    color: white;
+    background-color: rgba(85, 12, 174, 0.89);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+a:hover {
+    background-color: rgba(85, 12, 174, 0.75);
+    box-shadow: 0 0 10px #550cae;
+    cursor: pointer;
 }
