@@ -120,10 +120,10 @@ addEventListener("load", () => {
                 if (isGoingRight) {
                     character.style.left = "0px";
                     // character.getBoundingClientRect().left = leftValue;
-                    character.style.top = topValue;
                 } else {
                     character.style.left = puzzlePieces[i].getBoundingClientRect().width - character.getBoundingClientRect().width + "px";
                 }
+                character.style.top = topValue;
             }
         }
 
