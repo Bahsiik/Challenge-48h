@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href ="style.css"/>
-    <link rel="shortcut icon" href="icones/icons8-javascript-color-120.png" type="image/x-icon">
+    <link rel="stylesheet" href="../style/layout.css">
+    <link rel="stylesheet" href ="style.css">
     <title>L'énigme logique</title>
+    <script src="enigme.js"></script>
 </head>
 <body>
 
@@ -15,99 +16,75 @@
         <h1>L'ÉNIGME LOGIQUE</h1>
 
     </Header>
+
     <main>
-<section class="enigme">
-        
-        <div icones>                                                       
+
+        <section class="enigme">
+        <div class ="wh">                                                       
             <img src="icones/c-144.png" class="icon"> 
-            
             <img src="icones/fois.png" class="icon">
-            
             <img src="icones/c-144.png" class="icon"> 
                                                                                  <!--première rangée-->
             <img src="icones/fois.png" class="icon">
-
             <img src="icones/c-144.png" class="icon"> 
-            
-            <img src="icones/egale.png" class="icon"> 
-
+            <img src="icones/egale.png" class="icon">
             <img src="icones/r27-100.png" class="icon">
         </div>
 
 
-        <div icones>                                                       
+        <div  class ="wh">                                                       
             <img src="icones/c++-144.png" class="icon"> 
-            
             <img src="icones/fois.png" class="icon">
-            
             <img src="icones/c++-144.png" class="icon"> 
-
             <img src="icones/fois.png" class="icon">
-                                                                                     <!--2e rangée-->
-            <img src="icones/c++-144.png" class="icon">  
-            
+                                                                                 <!--2e rangée-->
+            <img src="icones/c++-144.png" class="icon">   
             <img src="icones/fois.png" class="icon"> 
-
             <img src="icones/c-144.png" class="icon"> 
-
             <img src="icones/egale.png" class="icon"> 
-
             <img src="icones/r24-100.png" class="icon">
         </div>
 
-        <div icones>                                                    
+        <div class ="wh">                                                    
             <img src="icones/c-144.png" class="icon"> 
-            
-            <img src="icones/fois.png" class="icon">
-            
-            <img src="icones/c++-144.png" class="icon"> 
-
+            <img src="icones/fois.png" class="icon"> 
+            <img src="icones/c++-144.png" class="icon">
             <img src="icones/fois.png" class="icon">
                                                                                                  <!--3e rangée-->
             <img src="icones/c-sharp-logo-144.png" class="icon">
-
             <img src="icones/fois.png" class="icon"> 
-
             <img src="icones/c-sharp-logo-144.png" class="icon"> 
-
             <img src="icones/egale.png" class="icon"> 
-
             <img src="icones/r96-100.png" class="icon"> 
         </div>
 
-        <div icones>                                                       
+        <div class ="wh">                                                       
             <img src="icones/c-sharp-logo-144.png" class="icon"> 
-            
             <img src="icones/plus.png" class="icon">
-            
-            <img src="icones/c-144.png" class="icon"> 
-
+            <img src="icones/c-144.png" class="icon">
             <img src="icones/fois.png" class="icon">
                                                                                                      <!--4e rangée-->
             <img src="icones/c++-144.png" class="icon">  
-            
             <img src="icones/egale.png" class="icon"> 
-
             <img src="icones/point-d'interrogation-100.png" class="icon"> 
         </div>
         </section>
 
+      
         <section class="section2">
+              <p class="message" id="result"></p>
+            <form class="formulaire" method="get">
                 
-            <form action="" method="get">
                 <label for="reponse">Réponse:</label>
                 <input type="text" id="reponse" name="answer">
-                <input type="submit" value="Valider">     
+               
+                <button class="bouton" type="button" onclick="enigme1()"> valider </button>    
             </form>
 
          </section>
-
     
     </main> 
 
-    <footer class="foot">
-        Pied de page
-    </footer>
-
+     
 </body>
 </html>

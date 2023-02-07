@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href ="style.css"/>
-    <link rel="shortcut icon" href="icones/icons8-javascript-color-120.png" type="image/x-icon">
+    <link rel="stylesheet" href="../style/layout.css">
     <title>L'énigme logique2</title>
+    <script src="enigme.js"></script>
 </head>
 <body>
 
@@ -18,7 +19,7 @@
     <main>
 <section class="enigme">
         
-        <div icones>                                                       
+        <div class ="wh">                                                       
             <img src="icones/ordi-imac-100.png" class="icon"> 
              
                                                                                  <!--première rangée-->
@@ -29,7 +30,7 @@
         </div>
 
 
-        <div icones>                                                       
+        <div class ="wh">                                                       
                                                                                      <!--2e rangée-->
             <img src="icones/hub.png" class="icon"> 
 
@@ -44,7 +45,7 @@
 
         </div>
 
-        <div icones>                                                    
+        <div class ="wh">                                                    
             <img src="icones/ordi-imac-100.png" class="icon"> 
             
             <img src="icones/egale.png" class="icon">
@@ -60,7 +61,7 @@
             <img src="icones/routeur.png" class="icon"> 
         </div>
 
-        <div icones>                                                       
+        <div class ="wh">                                                       
             <img src="icones/ordi-imac-100.png" class="icon"> 
             
             <img src="icones/plus.png" class="icon">
@@ -78,21 +79,20 @@
         </section>
 
         <section class="section2">
-                
-            <form action="" method="get">
+            <p class="message" id="result2"></p>
+            <form class="formulaire" method="get">
                 <label for="reponse">Réponse:</label>
-                <input type="text" id="reponse" name="answer">
-                <input type="submit" value="Valider">     
+                <input type="text" id="reponse2" name="answer">
+                <button class="bouton" type="button"  onclick="enigme2()"> valider</button>     
             </form>
-
          </section>
 
     
     </main> 
 
-    <footer class="foot">
+    <!-- <footer class="foot">
         Pied de page
-    </footer>
+    </footer> -->
 
 </body>
 </html>

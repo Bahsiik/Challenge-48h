@@ -1,0 +1,12 @@
+h1 {
+    font-size: 4em;
+    color: #550CAE;
+    text-align: center;
+}
+
+.content {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
